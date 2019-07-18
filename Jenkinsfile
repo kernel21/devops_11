@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git $git_repo
+        git clone $git_repo
       }
     }
     stage('Building image') {
