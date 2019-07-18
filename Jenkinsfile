@@ -3,13 +3,14 @@ pipeline {
     registry = "registry.els24.com/jenkins-image/maven_tomcat"
     registryCredential = 'docker_registry'
     container_name = 'tomcat8'
-    prod_docker_host = '10.4.1.152:4243'
+    prod_docker_host = 'devops8-2.corp.group:4243'
+    git_repo=https://github.com/kernel21/devops_11.git
   }
   agent any
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/kernel21/devops_11.git'
+        git $git_repo
       }
     }
     stage('Building image') {
