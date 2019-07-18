@@ -11,10 +11,15 @@ pipeline {
   stages {
     stage('Run Docker') {
       agent {
-                docker { image registry }
+                docker { image ubuntu:16.04 }
             }
             steps {
-                sh 'uname -a'
+                sh 'apt update && apt install docker.io git'
+                git git_repo
+                script {
+                docker.withRegistry( 'https://' + registry, registryCredential ) {
+                dockerImage = docker.build registry + ":$BUILD_NUMBER"
+            }
             }
         }
 
