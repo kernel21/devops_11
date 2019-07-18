@@ -14,7 +14,6 @@ pipeline {
                 docker { image 'ubuntu:16.04' }
             }
             steps {
-                sh 'apt update && apt install docker.io git'
                 git git_repo
                 script {
                 docker.withRegistry( 'https://' + registry, registryCredential ) {
