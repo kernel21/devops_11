@@ -17,10 +17,7 @@ pipeline {
                 sh 'mvn --version'
             }
         }
-      steps {
-        git git_repo
-      }
-    }
+
     stage('Building image') {
       steps {
         script {
