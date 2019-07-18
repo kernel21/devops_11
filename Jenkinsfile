@@ -56,5 +56,5 @@ pipeline {
         sh 'docker -H $prod_docker_host run --name $container_name -d -p 8080:8080 $registry:latest'
       }
     }
-}
+ }
 }
