@@ -10,6 +10,13 @@ pipeline {
   agent any
   stages {
     stage('Cloning Git') {
+      agent {
+                docker { image 'maven:3-alpine' }
+            }
+            steps {
+                sh 'mvn --version'
+            }
+        }
       steps {
         git git_repo
       }
