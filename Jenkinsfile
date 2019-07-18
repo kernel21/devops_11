@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Run Docker') {
       agent {
-                docker { image ubuntu:16.04 }
+                docker { image 'ubuntu:16.04' }
             }
             steps {
                 sh 'apt update && apt install docker.io git'
