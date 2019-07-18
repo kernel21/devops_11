@@ -9,7 +9,7 @@ pipeline {
   }
   agent any
   stages {
-    stage('Cloning Git') {
+    stage('Run Docker') {
       agent {
                 docker { image 'maven:3-alpine' }
             }
