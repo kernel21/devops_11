@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "registry.els24.com/jenkins-image/maven_tomcat"
-    registry_build = "registry.els24.com/jenkins-image/build"
+    registry_build = "registry.els24.com/jenkins-image/build-agent"
     registryCredential = 'docker_registry'
     container_name = 'tomcat8'
     prod_docker_host = 'devops8-3.corp.group:4243'
@@ -11,10 +11,10 @@ pipeline {
   stages {
     stage('Run Docker') {
       agent {
-                docker { image 'maven:3-alpine' }
+                docker { image registry }
             }
             steps {
-                sh 'mvn --version'
+                sh 'uname -a'
             }
         }
 
