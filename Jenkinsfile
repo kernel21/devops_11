@@ -52,8 +52,7 @@ pipeline {
     stage ('Deploy to prod docker') {
     steps{
         sh 'docker -H $prod_docker_host container stop -f $container_name &>/dev/null'
-        sh 'docker -H $prod_docker_host container rm -f $container_name &>/dev/null'
-        sh 'sleep 10'
+        sh 'docker -H $prod_docker_host container rm -f $container_name &>/dev/null && sleep 10'
         sh 'docker -H $prod_docker_host run --name $container_name -d -p 8080:8080 $registry:latest'
       }
     }
