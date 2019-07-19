@@ -13,14 +13,23 @@ pipeline {
         steps {
              script {
                 docker.withRegistry( 'https://' + registry, registryCredential ) {
+                // run docker image in privileged mode
                 docker.image(registry_build).withRun('--privileged') {
+                docker.image(registry_build).inside {
+                // clone git repo
                 git git_repo
+                // start docker daemon
                 sh '/etc/init.d/docker start'
+                // Building image
                 dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                // Deploy tagget image
                 dockerImage.push()
+                // Registring image
                 dockerImage.push 'latest'
+                // Removing local image
                 sh "docker rmi $registry:$BUILD_NUMBER"
                 sh "docker rmi $registry:latest"
+                }
                 }
             }
             }
