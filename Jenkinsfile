@@ -13,7 +13,7 @@ pipeline {
         steps {
              script {
                 docker.withRegistry( 'https://' + registry, registryCredential ) {
-                docker.image('registry_build').withRun('--privileged') {
+                docker.image(registry_build).withRun('--privileged') {
                  git git_repo
                  sh '/etc/init.d/docker start'
                 }
