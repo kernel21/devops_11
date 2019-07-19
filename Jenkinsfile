@@ -10,8 +10,7 @@ pipeline {
   agent any
   stages {
     stage('Run Docker') {
-        stage('Cloning Git') {
-            steps {
+          steps {
                 sh 'docker run --privileged -t -i registry_build'
                 sh 'uname -a'
                 git git_repo
@@ -19,6 +18,5 @@ pipeline {
         }
         }
 
-}
 }
 }
