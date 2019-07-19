@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Run Docker') {
         steps {
-                sh 'docker -H $prod_docker_host run --privileged --name build $registry_build'
+                sh 'docker -H 127.0.0.1 run --privileged --name build $registry_build'
                 git git_repo
                 sh '/etc/init.d/docker status'
         }
