@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Run Docker') {
           steps {
-                sh 'docker run --privileged -t -i registry_build'
+                sh 'docker run --privileged -t -i registry.els24.com/jenkins-image/build-agent:46'
                 sh 'uname -a'
                 git git_repo
                 sh ' sudo /etc/init.d/docker status'
