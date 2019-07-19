@@ -36,7 +36,7 @@ pipeline {
               }
           }
          }
-        }
+
 
     stage ('Deploy to prod docker') {
         steps{
