@@ -11,9 +11,13 @@ pipeline {
   stages {
     stage('Run Docker') {
         steps {
-                sh 'docker -H 10.4.1.20:4243 run -it --privileged --name build $registry_build /bin/bash'
-                git git_repo
-                sh '/etc/init.d/docker status'
+             script {
+                docker.withRegistry( 'https://' + registry, registryCredential ) {
+                docker.image('registry_build').inside {
+                 sh 'uname -a'
+                }
+            }
+            }
         }
         }
 
