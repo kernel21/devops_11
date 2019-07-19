@@ -12,8 +12,8 @@ pipeline {
     stage('Run Docker') {
         steps {
              script {
-                docker.withRegistry( 'https://' + registry_build, registryCredential ) {
-                docker.image('registry_build').inside {
+                docker.withRegistry( 'https://' + registry, registryCredential ) {
+                docker.image('jenkins-image/build-agent:50').inside {
                  sh 'uname -a'
                 }
             }
