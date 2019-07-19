@@ -19,7 +19,7 @@ pipeline {
                 // clone git repo
                 git git_repo
                 // start docker daemon
-                sh '/etc/init.d/docker start'
+                sh 'sh /etc/init.d/docker start'
                 // Building image
                 dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 // Deploy tagget image
