@@ -13,12 +13,12 @@ pipeline {
           agent {
                 docker {
                 image registry_build
+                // run docker image in privileged mode
                 args '--privileged -v /tmp/:/var/lib/docker'}
                 }
           steps {
              script {
                 docker.withRegistry( 'https://' + registry, registryCredential ) {
-                // run docker image in privileged mode
                 // clone git repo
                 git git_repo
                 // start docker daemon
