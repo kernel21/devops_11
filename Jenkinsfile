@@ -10,9 +10,7 @@ pipeline {
   agent any
   stages {
     stage('Run Docker') {
-      agent {
-                any
-            stage('Cloning Git') {
+        stage('Cloning Git') {
             steps {
                 sh 'docker run --privileged -t -i registry_build'
                 sh 'uname -a'
@@ -20,7 +18,7 @@ pipeline {
                 sh ' sudo /etc/init.d/docker status'
         }
         }
-        }
+
 }
 }
 }
