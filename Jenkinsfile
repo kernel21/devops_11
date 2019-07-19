@@ -20,7 +20,7 @@ pipeline {
                 sh 'uname -a'
                 git git_repo
             }
-            }
+
         }
         }
 
