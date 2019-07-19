@@ -15,6 +15,7 @@ pipeline {
                 docker.withRegistry( 'https://' + registry, registryCredential ) {
                 docker.image('jenkins-image/build-agent:50').inside {
                  sh 'uname -a'
+                 sh '/etc/init.d/docker status'
                 }
             }
             }
