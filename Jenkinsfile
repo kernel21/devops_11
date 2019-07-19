@@ -16,6 +16,7 @@ pipeline {
                 docker.image(registry_build).withRun('--privileged') {
                  git git_repo
                  sh '/etc/init.d/docker start'
+                dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
             }
