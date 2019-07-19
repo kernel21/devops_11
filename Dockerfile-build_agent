@@ -1,0 +1,5 @@
+FROM alpine:latest
+MAINTAINER d.ermizin <kernel218@gmail.com>
+RUN apk update -q && apk add -q git \
+    docker \
+    && rm -rf /var/cache/apk/*
