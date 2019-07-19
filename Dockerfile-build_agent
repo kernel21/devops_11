@@ -1,5 +1,5 @@
-FROM alpine:latest
+FROM ubuntu:16.04
 MAINTAINER d.ermizin <kernel218@gmail.com>
-RUN apk update -q && apk add -q git \
-    docker \
-    && rm -rf /var/cache/apk/*
+RUN apt update -q && apt install -qy git \
+    docker.io \
+    && rm -rf /var/cache/apt/*
