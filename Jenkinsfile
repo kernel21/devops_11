@@ -17,7 +17,6 @@ pipeline {
 
             }
             steps {
-                git git_repo
                 script {
                 docker.withRegistry( 'https://' + registry, registryCredential ) {
                 dockerImage = docker.build registry + ":$BUILD_NUMBER"
