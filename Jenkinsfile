@@ -14,7 +14,7 @@ pipeline {
              script {
                 docker.withRegistry( 'https://' + registry, registryCredential ) {
                 // run docker image in privileged mode
-                docker.image(registry_build).withRun('--privileged') {
+                docker.image(registry_build).withRun('--privileged -v /var/run/docker.sock:/var/run/docker.sock') {
                 docker.image(registry_build).inside {
                 // clone git repo
                 git git_repo
