@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Run Docker') {
       agent {
-                docker { image 'registry_build' }
+                docker { image registry_build }
             }
             steps {
                 git git_repo
