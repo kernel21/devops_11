@@ -11,17 +11,15 @@ pipeline {
   stages {
     stage('Run Docker') {
       agent {
-                docker {
-                image registry_build
-                args '--privileged'}
-
-            }
+                any
+            stage('Cloning Git') {
             steps {
+                sh 'docker run --privileged -t -i registry_build'
                 sh 'uname -a'
                 git git_repo
-                sh ' sudo /etc/init.d/docker start'
+                sh ' sudo /etc/init.d/docker status'
         }
         }
-
+        }
 }
 }
