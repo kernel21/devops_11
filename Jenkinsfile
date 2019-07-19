@@ -19,8 +19,6 @@ pipeline {
             steps {
                 sh 'uname -a'
                 git git_repo
-            }
-
         }
         }
 
