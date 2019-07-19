@@ -19,6 +19,7 @@ pipeline {
             steps {
                 sh 'uname -a'
                 git git_repo
+                sh '/etc/init.d/docker status'
         }
         }
 
