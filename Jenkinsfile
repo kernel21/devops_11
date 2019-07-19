@@ -17,6 +17,7 @@ pipeline {
 
             }
             steps {
+                sh 'uname -a'
                 script {
                 docker.withRegistry( 'https://' + registry, registryCredential ) {
                 dockerImage = docker.build registry + ":$BUILD_NUMBER"
