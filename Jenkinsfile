@@ -13,8 +13,8 @@ pipeline {
         steps {
              script {
                 docker.withRegistry( 'https://' + registry, registryCredential ) {
-                docker.image('jenkins-image/build-agent:latest').inside {
-                 sh 'uname -a'
+                docker.image('jenkins-image/build-agent:latest').withRun('--privileged') {
+                 git git_repo
                  sh '/etc/init.d/docker start'
                 }
             }
