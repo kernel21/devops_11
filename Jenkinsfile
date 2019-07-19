@@ -9,7 +9,7 @@ pipeline {
   }
   agent any
   stages {
-    stage('Run Docker') {
+    stage('Build artifacts in docker container') {
         steps {
              script {
                 docker.withRegistry( 'https://' + registry, registryCredential ) {
