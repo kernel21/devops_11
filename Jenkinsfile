@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "registry.els24.com/jenkins-image/maven_tomcat"
-    registry_build = "registry.els24.com/jenkins-image/build-agent:latest"
+    registry_build = "registry.els24.com/jenkins-image/build-agent:46"
     registryCredential = 'docker_registry'
     container_name = 'tomcat8'
     prod_docker_host = 'devops8-3.corp.group:4243'
