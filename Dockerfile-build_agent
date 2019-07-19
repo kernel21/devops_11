@@ -4,5 +4,5 @@ USER root
 RUN apt-get update -q && apt-get install -yq git \
     docker.io \
     && rm -rf /var/cache/apk/*
-ENTRYPOINT /etc/init.d/docker start && /bin/bash
+CMD /etc/init.d/docker start && /bin/bash
 #CMD ["/etc/init.d/docker" 'start'
