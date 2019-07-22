@@ -29,6 +29,8 @@ pipeline {
                 git git_repo
                 // start docker daemon
                 sh '/etc/init.d/docker start'
+                // some time for docker ready
+                sh 'sleep 10'
                 // Building image
                 dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 // Deploy tagget image
