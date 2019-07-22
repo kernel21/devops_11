@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage ('Create working directory') {
         steps{
-            sh 'mkdir /tmp/docker_builds/'
+            sh 'mkdir /tmp/docker_builds/ &>/dev/null'
       }
     }
 
