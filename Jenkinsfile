@@ -9,12 +9,18 @@ pipeline {
   }
   agent any
   stages {
+    stage ('Create working directory') {
+        steps{
+            sh 'mkdir /tmp/docker_builds/'
+      }
+    }
+
     stage('Build artifacts in docker container') {
           agent {
                 docker {
                 image registry_build
                 // run docker image in privileged mode
-                args '--privileged -v /tmp/:/var/lib/docker'}
+                args '--privileged -v /tmp/docker_builds/:/var/lib/docker'}
                 }
           steps {
              script {
